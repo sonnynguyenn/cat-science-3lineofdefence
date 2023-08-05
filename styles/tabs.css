@@ -1,0 +1,250 @@
+/* TAB contain settings */
+.tab{
+	border-radius: 1vw;
+	border: 1px black solid;
+	margin-top: 1em;
+	display: flex;
+	align-items: center;
+	transition: border-radius cubic-bezier(0, 1, 0, 1) 0.3s;
+	cursor: pointer;
+}
+.tab-contain.opening > .tab{
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom: none;
+}
+
+/* Tabs' children settings */
+
+.tab > *{
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	transition: padding-left ease 0.3s, margin-left ease 0.3s;
+}
+
+.tab > *:first-child{
+	padding-left: 1em;
+}
+
+.tab > span{
+	font-size: 0.5em;
+	font-weight: lighter;
+	font-style: italic;
+	color: gray;	
+	margin-left: 1.5em;
+}
+
+.tab-contain.opening > .tab > span{
+	margin-left: 1em;
+}
+
+/* Close button of tab settings */
+.tab-contain.opening > .tab > span{
+	margin-left: 1em;
+}
+.tab-contain:not(.opening)  > .tab > .close{
+	transform: scale(0);
+}
+.tab-contain.opening >.tab > .close{
+	transform: scale(1);
+}
+.tab > .close{
+	width: 1em;
+	border-radius: 0.5em;
+	margin-left: auto;
+	margin-right: 0.5em;
+	transition: box-shadow ease 0.3s, transform 0.3s ease;
+	background: linear-gradient(57deg, rgb(227 227 227) 0%, rgb(227 227 227) 99%);
+}
+
+.tab:hover > .close{
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px 0px;
+	background: linear-gradient(202deg, rgba(231,0,0,1) 0%, rgba(255,119,119,1) 99%);
+}
+
+.close::before{
+	content: "×";
+	color: white;
+	position: absolute;
+	margin-top: -0.77em;
+	margin-left: 0.17em;
+	text-shadow: 3px 3px 4px rgba(0,0,0,0.6);
+}
+
+/* General tab's info */
+.info{
+	display: flex;
+	align-items: center;
+}
+.info > *:first-child{
+	padding-left: 0.4em;
+}
+.info > .logo{
+	height: 3em;
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+}
+
+.info > article{
+	font-size: 0.65em;
+	color: #333333;
+	height: 5em;
+	aspect-ratio: 1/1;
+	margin-left: 0.3em;
+	flex-grow: 1;
+	padding-right: 0.5em;
+}
+.info > article *{
+	font-size: 1em;
+}
+
+/* Tab's content settings */
+.tab-contain > .content-contain{
+	width: 95.5%;
+	margin-left: 2.25%;
+	height: 0px;
+	display: none;
+}
+
+.tab-contain.opening > .content-contain{
+	display: block;	
+	height: auto;
+	animation: showup linear 0.6s;
+}
+@keyframes showup{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+/* Contents' element settings */
+.content > .element{
+	display: grid;
+	height: auto;
+	grid-template-rows: 1.4em auto;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.content > .element:nth-child(odd){
+	grid-template-areas: "title img" "article img";
+	grid-template-columns: 1.4fr 1fr;
+}
+.content > .element:nth-child(even){
+	grid-template-areas: "img title" "img article";
+	grid-template-columns: 1fr 1.4fr;
+}
+.content > .element:last-child{
+	margin-bottom: 2em;
+}
+.element > h3{
+	grid-area: title;
+	padding-top: 0.4em;
+	padding-left: 0.5em;
+	font-weight: 500;
+}
+.element > article{
+	grid-area: article;
+	font-size: 0.7em;
+	padding-left: 0.3em;
+	font-weight: 300;
+	padding-bottom: 1em;
+}
+.element > article *{
+	font-size: 1em;
+}
+.element > article b{
+	font-weight: bolder;
+}
+.element > #el-img {
+	grid-area: img;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+#el-img > img{
+	width: 100%;
+	border-radius: 2vw;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.element{
+	margin-top: 1em;
+	background-color: #f9f9f9;
+}
+.element > h3 > span{
+	font-size: 0.7em;
+	color: gray;
+	font-style: italic;
+	text-decoration: none;
+	font-weight: lighter;
+}
+
+/* Paragraph of element settings */
+.tab-contain.opening > #pcontent{
+	display: block;
+}
+#pcontent > h2:not(:first-child){
+	margin-top: 1em;
+}
+#pcontent > h2{
+	font-size: 1.2em;
+}
+#pcontent  > .paragraph:not(:first-child){
+	margin-top : 0.3em;
+}
+#pcontent > .paragraph > h3{
+	font-size: 1.05em;
+	font-weight: 500;
+	padding-left:  0.5em;
+}
+#pcontent > .paragraph > article{
+	font-size: 0.6em;
+	font-weight: lighter;
+	padding-left: 0.9em; 
+}
+#pcontent > .paragraph > article b{
+	font-weight: bolder;
+	font-size: 1em;
+}
+#pcontent > .paragraph:last-child{
+	padding-bottom: 1em;
+}
+#pcontent > *{
+	padding-left: 0.6em;
+}
+
+.tab-contain >  #pcontent{
+	display: none;
+	padding-top: 0.4em;
+	background-color: #f9f9f9;
+}
+#pcontent .img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+}
+#pcontent .img > span{
+	font-size: 0.3em;
+}
+#pcontent .img > span *{
+	font-size: 1em;
+}
+#pcontent img{
+	margin-top: 1em;
+	width: 100%;
+	border-radius: 2vw;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+/* First tab click me effects */
+@keyframes clickme{
+	0%{right: -0.7em;}
+	50%{right: -1em;}
+	100%{right:-0.7em;}
+}
+.tab-contain.unopened > .tab::after {
+	content: "<";
+	position: relative;
+	right: -1em;
+	animation: clickme linear 1s infinite;
+}
